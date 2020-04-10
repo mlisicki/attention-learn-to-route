@@ -1,7 +1,7 @@
 import argparse
 import os
 import numpy as np
-from utils.data_utils import check_extension, save_dataset
+from .utils.data_utils import check_extension, save_dataset
 
 
 def generate_tsp_data(dataset_size, tsp_size):
@@ -12,7 +12,13 @@ def generate_vrp_data(dataset_size, vrp_size):
     CAPACITIES = {
         10: 20.,
         20: 30.,
+        30: 33.,
+        40: 36.,
         50: 40.,
+        60: 42.,
+        70: 44.,
+        80: 46.,
+        90: 48.,
         100: 50.
     }
     return list(zip(

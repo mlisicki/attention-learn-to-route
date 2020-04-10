@@ -4,10 +4,10 @@ import os
 import time
 from datetime import timedelta
 from scipy.spatial import distance_matrix
-from utils import run_all_in_pool
-from utils.data_utils import check_extension, load_dataset, save_dataset
+from ...utils import run_all_in_pool
+from ...utils.data_utils import check_extension, load_dataset, save_dataset
 from subprocess import check_call, check_output, CalledProcessError
-from problems.vrp.vrp_baseline import get_lkh_executable
+from ...problems.vrp.vrp_baseline import get_lkh_executable
 import torch
 from tqdm import tqdm
 import re

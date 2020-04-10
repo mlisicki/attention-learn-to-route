@@ -3,7 +3,7 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset
 from scipy.stats import ttest_rel
 import copy
-from train import rollout, get_inner_model
+from .train import rollout, get_inner_model
 
 class Baseline(object):
 

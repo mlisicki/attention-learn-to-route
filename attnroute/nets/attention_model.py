@@ -4,12 +4,12 @@ import torch.nn.functional as F
 from torch.utils.checkpoint import checkpoint
 import math
 from typing import NamedTuple
-from utils.tensor_functions import compute_in_batches
+from ..utils.tensor_functions import compute_in_batches
 
-from nets.graph_encoder import GraphAttentionEncoder
+from ..nets.graph_encoder import GraphAttentionEncoder
 from torch.nn import DataParallel
-from utils.beam_search import CachedLookup
-from utils.functions import sample_many
+from ..utils.beam_search import CachedLookup
+from ..utils.functions import sample_many
 
 
 def set_decode_type(model, decode_type):
@@ -480,7 +480,7 @@ class AttentionModel(nn.Module):
 
         # From the logits compute the probabilities by clipping, masking and softmax
         if self.tanh_clipping > 0:
-            logits = F.tanh(logits) * self.tanh_clipping
+            logits = torch.tanh(logits) * self.tanh_clipping
         if self.mask_logits:
             logits[mask] = -math.inf
 

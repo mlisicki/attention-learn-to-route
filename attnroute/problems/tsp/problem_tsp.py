@@ -2,8 +2,9 @@ from torch.utils.data import Dataset
 import torch
 import os
 import pickle
-from problems.tsp.state_tsp import StateTSP
-from utils.beam_search import beam_search
+from ...problems.tsp.state_tsp import StateTSP
+from ...utils.beam_search import beam_search
+from ...utils.data_utils import Continuum
 
 
 class TSP(object):

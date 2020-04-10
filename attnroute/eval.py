@@ -5,12 +5,12 @@ import argparse
 import numpy as np
 import itertools
 from tqdm import tqdm
-from utils import load_model, move_to
-from utils.data_utils import save_dataset
+from .utils import load_model, move_to
+from .utils.data_utils import save_dataset
 from torch.utils.data import DataLoader
 import time
 from datetime import timedelta
-from utils.functions import parse_softmax_temperature
+from .utils.functions import parse_softmax_temperature
 mp = torch.multiprocessing.get_context('spawn')
 
 

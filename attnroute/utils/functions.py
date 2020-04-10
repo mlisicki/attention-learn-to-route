@@ -11,7 +11,7 @@ import torch.nn.functional as F
 
 
 def load_problem(name):
-    from problems import TSP, CVRP, SDVRP, OP, PCTSPDet, PCTSPStoch
+    from ..problems import TSP, CVRP, SDVRP, OP, PCTSPDet, PCTSPStoch
     problem = {
         'tsp': TSP,
         'cvrp': CVRP,
@@ -77,8 +77,8 @@ def load_args(filename):
 
 
 def load_model(path, epoch=None):
-    from nets.attention_model import AttentionModel
-    from nets.pointer_network import PointerNetwork
+    from ..nets.attention_model import AttentionModel
+    from ..nets.pointer_network import PointerNetwork
 
     if os.path.isfile(path):
         model_filename = path
@@ -148,6 +148,7 @@ def run_all_in_pool(func, directory, dataset, opts, use_multiprocessing=True):
     ds = dataset[offset:(offset + opts.n if opts.n is not None else len(dataset))]
     pool_cls = (Pool if use_multiprocessing and num_cpus > 1 else ThreadPool)
     with pool_cls(num_cpus) as pool:
+        print("Starting pool")
         results = list(tqdm(pool.imap(
             func,
             [
